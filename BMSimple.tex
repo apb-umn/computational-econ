@@ -1,0 +1,187 @@
+%% LyX 2.4.2.1 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[american]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{esint}
+\usepackage{babel}
+\begin{document}
+\title{A Simplified Sweat Capital Model}
+
+\maketitle
+I want to start with a simplified sweat capital model. The key features
+that I would like are
+\begin{enumerate}
+\item Two types of capital
+\item Occupation choice
+\end{enumerate}
+%
+Hopefully the model retains all the key economics and is easy to solve
+and code up. Let me start with the dynamic programs of owners and
+workers.
+
+\section{Time investment}
+
+\subsection{Dynamic programs}
+
+\paragraph{Owners}
+
+\[
+V^{b}\left(a,\kappa,s\right)=\max_{c,a^{\prime}\geq0,\kappa^{\prime}}u(c)-g(e)+\beta\sum_{s}\Pi(s^{\prime}|s)V\left(a^{\prime},\kappa^{\prime},s^{\prime}\right)
+\]
+\[
+c+a^{\prime}=y^{b}\left(\kappa,s\right)+Ra
+\]
+\[
+\kappa^{\prime}=\left(1-\delta_{\kappa}\right)\kappa+e
+\]
+
+
+\paragraph{Workers
+\[
+V^{w}\left(a,\kappa,s\right)=\max_{c,a^{\prime}\protect\geq0}u(c)+\beta\sum_{s}\Pi(s^{\prime}|s)V\left(a^{\prime},\kappa^{\prime},s^{\prime}\right)
+\]
+\[
+c+a^{\prime}=y^{w}\left(s\right)+Ra
+\]
+\[
+\kappa^{\prime}=\lambda\kappa
+\]
+}
+
+\paragraph{Occupational choice
+\[
+V\left(a,\kappa,s\right)=\protect\int\max_{d}\left(d\left[V^{b}\left(a,\kappa,s\right)+\eta\right]+\left(1-d\right)\left[V^{w}\left(a,\kappa,s\right)\right]\right)d\Gamma\left(\eta\right)
+\]
+}
+
+\subsection{Application of Endogenous grid}
+
+The optimality of owners and workers is given by 
+
+\[
+u_{c}\left(c\right)-\lambda=\beta\sum_{s}\Pi(s^{\prime}|s)V_{a}\left(a^{\prime},\kappa^{\prime},s^{\prime}\right)
+\]
+\[
+\lambda a^{\prime}=0,\quad\lambda\geq0,\quad a^{\prime}\ge0
+\]
+\[
+g_{e}\left(e\right)=\beta\sum_{s}\Pi(s^{\prime}|s)V_{\kappa}\left(a^{\prime},\kappa^{\prime},s^{\prime}\right)
+\]
+
+\begin{itemize}
+\item Assume that we have a guess for $V$ and via that we obtain $\left\{ V_{a},V_{\kappa}\right\} $
+\item We can back out functions $\left\{ C\left(a^{\prime},\kappa^{\prime},s\right),E\left(a^{\prime},\kappa^{\prime},s\right)\right\} _{A^{\prime}\times K^{\prime}\times S}$
+assuming the EE holds with equality
+\item Using $\left\{ C\left(a^{\prime},\kappa^{\prime},s\right),E\left(a^{\prime},\kappa^{\prime},s\right)\right\} _{A^{\prime}\times K^{\prime}\times S}$
+we can back out $\left\{ A\left(a^{\prime},\kappa^{\prime},s\right),K\left(a^{\prime},\kappa^{\prime},s\right)\right\} _{A^{\prime}\times K^{\prime}\times S}$
+as the associated levels of assets and sweat capital today
+\item Now we need to interpolate. Suppose $A\left(0,\kappa^{\prime},s\right)>0$,
+under some conditions {[}?{]} should be that the borrowing constraint
+binds. 
+\begin{itemize}
+\item let $\left\{ \left(A\left(0,\kappa^{\prime},s\right),K\left(0,\kappa^{\prime},s\right)\right)\right\} _{\kappa^{\prime}}$
+be the cutoffs. Suppose they are well-behaved, that is they nicely
+segment $A\times K$ space into a region $R^{-}\subseteq A\times K$
+where the constraint binds and a region $R^{+}$ where it doesn't. 
+\item For $\left(a,\kappa\right)\in R^{-}$ we can use $C^{min}\left(a,\kappa,s\right)=y^{b}\left(\kappa,s\right)+Ra$
+. We can add these points
+\item Elsewere we use $\left\{ C\left(a^{\prime},\kappa^{\prime},s\right),A\left(a^{\prime},\kappa^{\prime},s\right),K\left(a^{\prime},\kappa^{\prime},s\right)\right\} $
+to interpolate 
+\end{itemize}
+\item For $E\left(a^{\prime},\kappa^{\prime},s\right)$ we can just use
+$\left\{ E\left(a^{\prime},\kappa^{\prime},s\right),A\left(a^{\prime},\kappa^{\prime},s\right),K\left(a^{\prime},\kappa^{\prime},s\right)\right\} $
+\item Using the interpolations we can obtain $V^{b}$
+\item Something analogous should give us $V^{w}$
+\item Then the discrete choice is closed form and gives us $d$ as well
+as the new guess for $V$
+\end{itemize}
+
+\section{Money investment}
+
+\subsection{Dynamic programs}
+
+\paragraph{Owners}
+
+\[
+V^{b}\left(a,\kappa,s\right)=\max_{c,a^{\prime}\geq0,\kappa^{\prime}}u(c)+\beta\sum_{s}\Pi(s^{\prime}|s)V\left(a^{\prime},\kappa^{\prime},s^{\prime}\right)
+\]
+\[
+c+a^{\prime}=y^{b}\left(\kappa,s\right)+Ra-e
+\]
+\[
+\kappa^{\prime}=\left(1-\delta_{\kappa}\right)\kappa+g\left(e\right)
+\]
+
+
+\paragraph{Workers
+\[
+V^{w}\left(a,\kappa,s\right)=\max_{c,a^{\prime}\protect\geq0}u(c)+\beta\sum_{s}\Pi(s^{\prime}|s)V\left(a^{\prime},\kappa^{\prime},s^{\prime}\right)
+\]
+\[
+c+a^{\prime}=y^{w}\left(s\right)+Ra
+\]
+\[
+\kappa^{\prime}=\lambda\kappa
+\]
+}
+
+\paragraph{Occupational choice
+\[
+V\left(a,\kappa,s\right)=\protect\int\max_{d}\left(d\left[V^{b}\left(a,\kappa,s\right)+\eta\right]+\left(1-d\right)\left[V^{w}\left(a,\kappa,s\right)\right]\right)d\Gamma\left(\eta\right)
+\]
+}
+
+\subsection{Application of Endogenous grid}
+
+The optimality of owners and workers is given by 
+
+\[
+u_{c}\left(c\right)-\lambda=\beta\sum_{s}\Pi(s^{\prime}|s)V_{a}\left(a^{\prime},\kappa^{\prime},s^{\prime}\right)
+\]
+\[
+\lambda a^{\prime}=0,\quad\lambda\geq0,\quad a^{\prime}\ge0
+\]
+\[
+\frac{u_{c}\left(c\right)}{g_{e}\left(e\right)}=\underbrace{\beta\sum_{s}\Pi(s^{\prime}|s)V_{\kappa}\left(a^{\prime},\kappa^{\prime},s^{\prime}\right)}_{\chi}
+\]
+
+\begin{itemize}
+\item Assume that we have a guess for $V$ and via that we obtain $\left\{ V_{a},V_{\kappa}\right\} $
+\item There exists functions $C^{min}\left(a,\kappa^{\prime},\chi\right),E^{min}\left(a,\kappa^{\prime},\chi\right),K^{min}\left(a,\kappa^{\prime},\chi\right)$
+that satisfy 
+\[
+\frac{u_{c}\left(c\right)}{g_{e}\left(e\right)}=\chi
+\]
+\[
+c=y^{b}\left(\kappa,s\right)+Ra-e
+\]
+\[
+\kappa^{\prime}=\left(1-\delta_{\kappa}\right)\kappa+g\left(e\right)
+\]
+\item We can back out functions $\left\{ C\left(a^{\prime},\kappa^{\prime},s\right),E\left(a^{\prime},\kappa^{\prime},s\right)\right\} _{A^{\prime}\times K^{\prime}\times S}$
+assuming the EE holds with equality
+\item Using $\left\{ C\left(a^{\prime},\kappa^{\prime},s\right),E\left(a^{\prime},\kappa^{\prime},s\right)\right\} _{A^{\prime}\times K^{\prime}\times S}$
+we can back out $\left\{ A\left(a^{\prime},\kappa^{\prime},s\right),K\left(a^{\prime},\kappa^{\prime},s\right)\right\} _{A^{\prime}\times K^{\prime}\times S}$
+as the associated levels of assets and sweat capital today
+\item Now we need to interpolate. Suppose $A\left(0,\kappa^{\prime},s\right)>0$,
+under some conditions {[}?{]} should be that the borrowing constraint
+binds. 
+\begin{itemize}
+\item let $\left\{ \left(A\left(0,\kappa^{\prime},s\right),K\left(0,\kappa^{\prime},s\right)\right)\right\} _{\kappa^{\prime}}$
+be the cutoffs. Suppose they are well-behaved, that is they nicely
+segment $A\times K$ space into a region $R^{-}\subseteq A\times K$
+where the constraint binds and a region $R^{+}$ where it doesn't. 
+\item For $\left(a,\kappa\right)\in R^{-}$ we can use $\left\{ C^{min}\left(a,\kappa^{\prime},s\right),K^{min}\left(a,\kappa^{\prime},\chi\right)\right\} _{a<A\left(a^{\prime},\kappa^{\prime},s\right)}$
+. We can add these points
+\item Elsewere we use $\left\{ C\left(a^{\prime},\kappa^{\prime},s\right),A\left(a^{\prime},\kappa^{\prime},s\right),K\left(a^{\prime},\kappa^{\prime},s\right)\right\} $
+to interpolate 
+\item Same for $E\left(a^{\prime},\kappa^{\prime},s\right)$ 
+\end{itemize}
+\item Using the interpolations we can obtain $V^{b}$
+\item Something analogous should give us $V^{w}$
+\item Then the discrete choice is closed form and gives us $d$ as well
+as the new guess for $V$
+\end{itemize}
+
+\end{document}
