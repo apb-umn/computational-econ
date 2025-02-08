@@ -1,0 +1,78 @@
+%% LyX 2.4.2.1 created this file.  For more info, see https://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[american]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{babel}
+\begin{document}
+The owner solves the following problem
+
+\[
+v_{}^{b}(\theta_{w},\theta_{b},a_{})=\max_{c,a^{\prime},n,k}U(c)+\beta\mathbb{E}_{\left(\theta_{w},\theta_{b}\right)}\left[v\left(\theta_{w}^{\prime},\theta_{b}^{\prime},\eta^{\prime},a^{\prime}\right)\right]
+\]
+subject to 
+\[
+c+a^{\prime}\leq Ra+\pi\left(\theta_{b},n,k\right)
+\]
+where $\pi\left(\theta_{b},n,k\right)=\theta_{b}k^{\alpha}n^{\nu}-R^{k}k-Wn$
+and we have two constraints
+\[
+a^{\prime}\ge0
+\]
+\[
+k\leq\chi a^{\prime}
+\]
+Let $\mu_{b}$ and $\mu_{c}$ be the multipliers on the borrowing
+and collateral constraints and $\lambda$ on the period budget constraint.
+
+The optimality conditions are {[}check signs{]}
+\[
+U_{c}(c)=\lambda
+\]
+\[
+\beta\mathbb{E}_{\left(\theta_{w},\theta_{b}\right)}\left[v_{a}\left(\theta_{w}^{\prime},\theta_{b}^{\prime},\eta^{\prime},a^{\prime}\right)\right]+\mu_{b}+\chi\mu_{c}=\lambda
+\]
+\[
+\nu\theta_{b}k^{\alpha}n^{\nu}=Wn
+\]
+\[
+\lambda\left[\frac{\alpha\theta_{b}k^{\alpha}n^{\nu}}{k}-R^{k}\right]=\mu_{c}
+\]
+with complemantary slackness and non-negativity for the multipliers. 
+
+We can substitute out $\lambda$ and $\mu_{c}$ to get 
+\[
+\beta\mathbb{E}_{\left(\theta_{w},\theta_{b}\right)}\left[v_{a}\left(\theta_{w}^{\prime},\theta_{b}^{\prime},\eta^{\prime},a^{\prime}\right)\right]+\mu_{b}=U_{c}(c)\left[1-\chi\left(\frac{\alpha\theta_{b}k^{\alpha}N\left(k,\theta_{b},W\right)^{\nu}}{k}-R^{k}\right)\right]
+\]
+Before we do EGM some useful things to note
+\begin{itemize}
+\item when the borrowing constraint binds, $a^{\prime}=0$, then the agent
+cannot rent capital and business profits are zero. Suppose that the
+owner is in a situation where $a^{\prime}=0$. The owner could borrow
+a little, buy a little bit capital and make positive profit and consume
+plus save a part of the profit as collateral for the loan. This is
+feasible and will increase consumption. So effectively the borrowing
+constraint is really $k\leq\chi a^{\prime}$ 
+\item when the borrowing constraint does not bind, $\mu_{b}=0$, we can
+back out consumption today given $a^{\prime}$using the previous equation
+by setiing $k\left(a^{\prime},\theta_{b}\right)=\min\left\{ \chi a^{\prime},k^{*}\left(\theta_{b},R^{k}\right)\right\} .$
+\end{itemize}
+Now we can do the EGM. 
+\begin{itemize}
+\item precompute $k\left(a^{\prime},\theta_{b}\right),$$k^{*}\left(\theta_{b},R^{k}\right)$
+and $N\left(k\left(a^{\prime},\theta_{b}\right),\theta_{b},W\right)$.
+\item Start with a grid on $a^{\prime}$
+\item Compute the candidate solutions $a\left(a^{\prime};\theta_{b},\theta_{a}\right)$
+and $c\left(a^{\prime};\theta_{b},\theta_{a}\right)$ that satisfy
+the EE equation ignoring the borrowing constraint and we can interpolate
+using $\left\{ a\left(a^{\prime};\theta_{b},\theta_{a}\right),c\left(a^{\prime};\theta_{b},\theta_{a}\right)\right\} _{a^{\prime}>0}.$ 
+\item There are couple of things we need to be careful with during numerical
+implementation. These things wont happen in a simulation because of
+inada issues.
+\begin{itemize}
+\item $1-\chi\left(\frac{\alpha\theta_{b}k\left(a^{\prime},\theta_{b}\right)^{\alpha}N\left(k\left(a^{\prime},\theta_{b}\right),\theta_{b},W\right)^{\nu}}{k}-R^{k}\right)>0$
+\end{itemize}
+\end{itemize}
+
+\end{document}

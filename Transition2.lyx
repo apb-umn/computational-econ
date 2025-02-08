@@ -1,0 +1,1208 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children no
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Notes for Transition
+\end_layout
+
+\begin_layout Standard
+I want to add some details that explain how the approximation to the transition path is constructed.
+ 
+\end_layout
+
+\begin_layout Section
+Setup
+\end_layout
+
+\begin_layout Subsection
+Notation
+\end_layout
+
+\begin_layout Itemize
+Let 
+\lang english
+
+\begin_inset Formula $x_{i,t},$
+\end_inset
+
+ 
+\begin_inset Formula $X_{t}$
+\end_inset
+
+:
+ individual and aggregate endogenous variables.
+ Let 
+\begin_inset Formula $a_{i,t}\in x_{i,t}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $A_{t}\in X_{t}$
+\end_inset
+
+:
+ pre-determined variables or equivalently for some selection matrices 
+\begin_inset Formula $\mathsf{p}$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\mathsf{P}$
+\end_inset
+
+ as 
+\begin_inset Formula 
+\[
+a_{i,t}=\mathsf{p}x_{i,t},\qquad A_{t}=\mathsf{P}X_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Collections:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\lang english
+\begin_inset Formula $\Omega_{t}$
+\end_inset
+
+ :
+ Measure (CDF) over individual states 
+\begin_inset Formula $\left(a_{i,t-1},\theta_{i,t}\right)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+\begin_inset Formula $Z_{t}=\left[A_{t-1},\Omega_{t}\right]^{T}$
+\end_inset
+
+:
+ aggregate state and 
+\begin_inset Formula $\left(a_{i,t-1},\theta_{i,t},Z_{t}\right)$
+\end_inset
+
+ the individual states
+\end_layout
+
+\begin_layout Itemize
+\noindent
+
+\lang english
+\begin_inset Formula $Y_{t}=\left[\mathsf{P}X_{t-1},X_{t}\right]^{\mathrm{T}}$
+\end_inset
+
+:
+ aggregate variables relevant for equilibrium in period 
+\begin_inset Formula $t$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Equilibrium
+\end_layout
+
+\begin_layout Itemize
+\noindent
+
+\lang english
+Optimality conditions of agents with idiosyncratic shocks:
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\begin_inset Formula 
+\[
+F\left(\theta_{i,t},a_{i,t-1},x_{i,t},\mathbb{E}_{i,t}x_{i,t+1},Y_{t}\right)=0\text{ for all }i,t
+\]
+
+\end_inset
+
+
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+All other equilibrium conditions:
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\begin_inset Formula 
+\[
+G\left(\int x_{i,t}di,Y_{t}\right)=0\text{ for all }t
+\]
+
+\end_inset
+
+
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Equilibrium Paths:
+ 
+\begin_inset Formula $\left\{ X_{t},x_{t}\left(\mathcal{\theta}^{t}\right)\right\} _{t,\theta^{t}}$
+\end_inset
+
+ that satisfies equations 
+\begin_inset Formula $F$
+\end_inset
+
+ and 
+\begin_inset Formula $G$
+\end_inset
+
+ given initial conditions 
+\begin_inset Formula $\left(\left\{ a_{i,-1},\theta_{i,0}\right\} _{i},A_{-1}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Recursive Representation
+\end_layout
+
+\begin_layout Frame
+
+\lang english
+Let 
+\begin_inset Formula $Z=\left[A,\Omega\right]^{T}$
+\end_inset
+
+ be aggregate states and 
+\begin_inset Formula $\left(a,\theta,Z\right)$
+\end_inset
+
+ individual states
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+\begin_inset Formula $\overline{x}\left(a,\theta,Z\right)$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\overline{X}\left(Z\right)$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\overline{\Omega}\left(Z\right)$
+\end_inset
+
+ are indiv and agg policy functions
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\lang english
+\begin_inset Formula $\overline{a}\left(a,\theta,Z\right)=\mathsf{p}\overline{x}\left(z,\theta,Z\right)$
+\end_inset
+
+ 
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Recursive representation
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\begin_inset Formula 
+\[
+F\left(a,\theta,\overline{x}\left(a,\theta,Z\right),\mathbb{E}_{\varepsilon}\overline{x},\overline{Y}\left(Z\right)\right)=0
+\]
+
+\end_inset
+
+
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\begin_inset Formula 
+\[
+G\left(\int\overline{x}\left(\cdot,\cdot,Z\right)d\Omega,\overline{Y}\left(Z\right)\right)=0
+\]
+
+\end_inset
+
+
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\overline{\Omega}\left(Z\right)\left\langle a^{\prime},\theta^{\prime}\right\rangle =\int\int\iota\left(\overline{a}(a,\theta,Z)\leq a^{\prime}\right)\iota(\rho_{\theta}\theta+\varepsilon\leq\theta^{\prime})\mu\left(\varepsilon\right)d\varepsilon d\Omega\left\langle a,\theta\right\rangle .
+\]
+
+\end_inset
+
+
+\begin_inset VSpace 2mm
+\end_inset
+
+where 
+\begin_inset Formula $\overline{Y}\left(Z\right)=\left[\Theta,A,\overline{X}\left(Z\right),\overline{X}\left(\overline{Z}\left(Z\right)\right)\right].^{\mathrm{T}}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+The paths are given by 
+\begin_inset Formula 
+\[
+Z_{t}\left(Z_{0}\right)=\overline{Z}\odot\overline{Z}\odot\ldots\odot\overline{Z}\left(Z_{0}\right)
+\]
+
+\end_inset
+
+and 
+\begin_inset Formula $X_{t}=X\left(Z_{t}\left(Z_{0}\right)\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\lang english
+Approximation
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+Two steady states
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\lang english
+pre-reform 
+\begin_inset Formula $Z_{-1}=\left[A_{-1},\Omega_{-1}\right]^{\mathrm{T}}$
+\end_inset
+
+
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+post-reform 
+\begin_inset Formula $Z^{*}=\left[A^{*},\Omega^{*}\right]^{\mathrm{T}}$
+\end_inset
+
+
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\lang english
+Transition path approximated by perturbation in 
+\begin_inset Formula $Z$
+\end_inset
+
+
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\lang english
+approximate around post-reform SS
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+scale deviations of initial state:
+ 
+\begin_inset Formula $Z_{0}=Z^{*}+\sigma\left(Z_{-1}-Z^{*}\right)$
+\end_inset
+
+
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+equilibrium path 
+\begin_inset Formula $X_{t}(\sigma)$
+\end_inset
+
+
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\lang english
+\begin_inset Formula $\sigma=0$
+\end_inset
+
+ 
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ post-reform steady state
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\lang english
+\begin_inset Formula $\sigma=1$
+\end_inset
+
+ 
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ transition from pre-reform steady state
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+
+\lang english
+Use Taylor expansions w.r.t.
+ 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ to find various orders of approximations
+\begin_inset VSpace 2mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Write 
+\begin_inset Formula $Z_{0}=Z^{*}+\sigma\left(Z_{0}-Z^{*}\right).$
+\end_inset
+
+ Take derivatives with 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ to get 
+\begin_inset Formula 
+\[
+X_{t}=X\left(Z^{*}\right)+X_{t,Z}\cdot\left(Z_{t,Z}\cdot\hat{Z}_{0}^{TD}\right)
+\]
+
+\end_inset
+
+Where 
+\begin_inset Formula $Z_{t,Z}\cdot\hat{Z}_{0}^{TD}$
+\end_inset
+
+ can be constructed as 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\overline{Z}_{0,Z}\cdot\hat{Z}_{0}^{TD}=\hat{Z}_{0}^{TD}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\overline{Z}_{1,Z}\cdot\hat{Z}_{0}^{TD}=\overline{Z}_{Z}\cdot\hat{Z}_{0}^{TD}
+\]
+
+\end_inset
+
+Define 
+\begin_inset Formula $\hat{Z}_{t}^{TD}=\overline{Z}_{Z}\cdot\hat{Z}_{t-1}^{TD}$
+\end_inset
+
+ and we have 
+\begin_inset Formula $\overline{Z}_{t,Z}\cdot\hat{Z}_{0}^{TD}=\hat{Z}_{t}^{TD}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\lang english
+Step 1
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Formula 
+\[
+G\left(\int\overline{x}\left(\cdot,\cdot,Z\right)d\Omega,\overline{Y}\left(Z\right)\right)=0
+\]
+
+\end_inset
+
+First derivative of 
+\begin_inset Formula $G$
+\end_inset
+
+ in direction 
+\begin_inset Formula $\hat{Z}_{t}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\mathsf{G}_{Y}\hat{Y}_{t}+\mathsf{G}_{x}\left(\int\overline{x}d\Omega\right)_{Z}\cdot\hat{Z}_{t}=0,
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula 
+\[
+\hat{Y}_{t}=\left[\mathsf{P}\hat{X}_{t-1},\hat{X}_{t}\right]^{\mathrm{T}}
+\]
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+\left(\int\overline{x}d\Omega\right)_{Z}\cdot\hat{Z}_{t}=\int\underbrace{\overline{x}_{Z}\cdot\hat{Z}_{t}}_{\hat{x}_{t}}d\Omega^{*}+\int\overline{x}d\underbrace{\Omega_{Z}\cdot\hat{Z}_{t}}_{\hat{\Omega}_{t}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\lang english
+Step 2:
+
+\lang american
+ linearization of individual policies
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+For any 
+\begin_inset Formula $t$
+\end_inset
+
+,
+ 
+\begin_inset Formula 
+\begin{equation}
+\hat{x}_{t}\left(a,\theta\right)=\sum_{s=0}^{\infty}\mathsf{x}_{s}\left(a,\theta\right)\hat{Y}_{t+s},\label{eq: dx and dX}
+\end{equation}
+
+\end_inset
+
+where matrices 
+\begin_inset Formula $\mathsf{x}_{s}\left(a,\theta\right)$
+\end_inset
+
+ are given by 
+\begin_inset Formula 
+\begin{align}
+\mathsf{x}_{0}\left(a,\theta\right)= & -\left(\mathsf{F}_{x}\left(a,\theta\right)+\mathsf{F}_{x^{e}}\left(a,\theta\right)\mathbb{E}_{\varepsilon}\left[\overline{x}_{a}|a,\theta\right]\mathsf{p}\right)^{-1}\mathsf{F}_{Y}\left(a,\theta\right),\label{eq: x_0}\\
+\mathsf{x}_{s+1}\left(a,\theta\right)= & -\left(\mathsf{F}_{x}\left(a,\theta\right)+\mathsf{F}_{x^{e}}\left(a,\theta\right)\mathbb{E}_{\varepsilon}\left[\overline{x}_{a}|a,\theta\right]\mathsf{p}\right)^{-1}\mathsf{F}_{x^{e}}\left(a,\theta\right)\mathbb{E}_{\varepsilon}\left[\mathsf{x}_{s}|a,\theta\right]\label{eq: x_s}
+\end{align}
+
+\end_inset
+
+away from the kinks and 
+\begin_inset Formula $\mathsf{x}_{s}\left(\overline{\kappa}(\theta),\theta\right)=0$
+\end_inset
+
+ at the kinks,
+ and 
+\begin_inset Formula $\mathsf{F}_{x}\left(a,\theta\right)$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\mathsf{F}_{x^{e}}\left(a,\theta\right)$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\mathsf{F}_{Y}\left(a,\theta\right)$
+\end_inset
+
+ are derivatives of 
+\begin_inset Formula $F$
+\end_inset
+
+ with respect to 
+\begin_inset Formula $x$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\mathbb{E}x$
+\end_inset
+
+ and 
+\begin_inset Formula $Y$
+\end_inset
+
+,
+ all evaluated at the steady state values of 
+\begin_inset Formula $\overline{x}\left(a,\theta\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+We begin by differentiating the 
+\begin_inset Formula $F$
+\end_inset
+
+ mapping,
+ 
+\begin_inset Formula 
+\[
+F\left(a,\theta,\overline{x}\left(a,\theta,Z\right),\mathbb{E}_{\varepsilon}\overline{x},\overline{Y}\left(Z\right)\right)=0
+\]
+
+\end_inset
+
+in direction 
+\begin_inset Formula $\hat{Z}_{t}$
+\end_inset
+
+ at a point not on the kinks.
+ Doing so yields
+\begin_inset Formula 
+\[
+\mathsf{F}_{x}(a,\theta)\overline{x}_{Z}(a,\theta)\cdot\hat{Z}_{t}+\mathsf{F}_{Y}(a,\theta)\overline{Y}_{Z}\cdot\hat{Z}_{t}+\mathsf{F}_{x^{e}}(a,\theta)\left(\mathbb{E}_{\varepsilon}\left[\overline{x}|a,\theta,Z\right]\right)_{Z}\cdot\hat{Z}_{t}=0
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathbb{E}_{\varepsilon}\left[\overline{x}|a,\theta,Z\right]=\int\overline{x}\left(\overline{a}(a,\theta,Z),\rho_{\theta}\theta+\varepsilon,\overline{Z}(Z)\right)\mu(\epsilon)d\epsilon.$
+\end_inset
+
+ Applying the derivative yields
+\begin_inset Formula 
+\[
+\left(\mathbb{E}_{\varepsilon}\left[\overline{x}|a,\theta,Z\right]\right)_{Z}\cdot\hat{Z}_{t}=\mathbb{E}_{\varepsilon}\left[\overline{x}_{a}|a,\theta\right]\mathsf{p}\overline{x}_{Z}(a,\theta)\cdot\hat{Z}_{t}+\mathbb{E}_{\varepsilon}\left[\overline{x}_{Z}\cdot\overline{Z}_{Z}\cdot\hat{Z}_{t}|a,\theta\right]
+\]
+
+\end_inset
+
+Replacing 
+\begin_inset Formula $\overline{x}_{Z}\cdot\hat{Z}_{t}=\hat{x}_{t},$
+\end_inset
+
+ 
+\begin_inset Formula $\overline{Y}_{Z}\cdot\hat{Z}_{t}=\hat{Y}_{t}$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{Z}_{t+1}=\overline{Z}_{Z}\cdot\hat{Z}_{t}$
+\end_inset
+
+ we get the difference equation
+\begin_inset Formula 
+\begin{equation}
+\mathsf{F}_{x}(a,\theta)\hat{x}_{t}(a,\theta)+\mathsf{F}_{Y}(a,\theta)\hat{Y}_{t}+\mathsf{F}_{x^{e}}(a,\theta)\left(\mathbb{E}_{\varepsilon}\left[\overline{x}_{a}|a,\theta\right]\mathsf{p}\hat{x}_{t}(a,\theta)+\mathbb{E}_{\varepsilon}\left[\hat{x}_{t+1}|a,\theta\right]\right)=0.\label{eq: app F_Zt}
+\end{equation}
+
+\end_inset
+
+Our claim is that 
+\begin_inset Formula $\hat{x}_{t}=\sum_{s=0}^{\infty}\mathsf{x}_{s}\hat{Y}_{t+s}$
+\end_inset
+
+ solves this equation where 
+\begin_inset Formula $\mathsf{x}_{s}$
+\end_inset
+
+ are defined via 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: x_0"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: x_s"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ To see this,
+ note that 
+\begin_inset Formula 
+\begin{align*}
+\mathsf{F}_{x^{e}}(a,\theta)\mathbb{E}_{\varepsilon}\left[\hat{x}_{t+1}|a,\theta\right] & =\sum_{s=0}^{\infty}\mathsf{F}_{x^{e}}(a,\theta)\mathbb{E}_{\varepsilon}\left[\mathsf{x}_{s}|a,\theta\right]\hat{Y}_{t+1+s}\\
+ & =-\left(\mathsf{F}_{x}(a,\theta)+\mathsf{F}_{x^{e}}(a,\theta)\mathbb{E}_{\varepsilon}\left[\overline{x}_{a}|a,\theta\right]\mathsf{P}\right)\sum_{s=1}^{\infty}\mathsf{x}_{s}(a,\theta)\hat{Y}_{t+s}
+\end{align*}
+
+\end_inset
+
+where the second line comes from applying equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: x_s"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+ Combined with equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: x_0"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ we have 
+\begin_inset Formula 
+\[
+\mathsf{F}_{Y}(a,\theta)+\mathsf{F}_{x^{e}}(a,\theta)\mathbb{E}_{\varepsilon}\left[\hat{x}_{t+1}|a,\theta\right]=-\left(\mathsf{F}_{x}(a,\theta)+\mathsf{F}_{x^{e}}(a,\theta)\mathbb{E}_{\varepsilon}\left[\overline{x}_{a}|a,\theta\right]\mathsf{P}\right)\hat{x}_{t}(a,\theta)
+\]
+
+\end_inset
+
+ which guarantees 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq: app F_Zt"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ and completes the proof.
+\end_layout
+
+\begin_layout Section
+
+\lang english
+Step 3:
+ Linearization of the LOM
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+For any 
+\begin_inset Formula $t$
+\end_inset
+
+,
+ 
+\begin_inset Formula $\frac{d}{d\theta}\hat{\Omega}_{t}$
+\end_inset
+
+ satisfies a recursion with 
+\begin_inset Formula $\frac{d}{d\theta}\hat{\Omega}_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula 
+\begin{equation}
+\frac{d}{d\theta}\hat{\Omega}_{t+1}=\mathcal{L}^{(a)}\cdot\frac{d}{d\theta}\hat{\Omega}_{t}-\mathcal{M}\cdot\hat{a}_{t},\label{eq: Omega_t}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Formula 
+\begin{alignat*}{1}
+\left(\mathcal{M}\cdot y\right)\left\langle a^{\prime},\theta^{\prime}\right\rangle  & :=\int\overline{\Lambda}(a^{\prime},\theta^{\prime},a,\theta)\omega^{*}\left(a,\theta\right)y\left(a,\theta\right)dad\theta,\\
+\left(\mathcal{L}^{(a)}\cdot y\right)\left\langle a^{\prime},\theta^{\prime}\right\rangle  & :=\int\overline{\Lambda}(a^{\prime},\theta^{\prime},a,\theta)\overline{a}_{a}\left(a,\theta\right)y\left(a,\theta\right)dad\theta,\\
+\mathcal{I}^{(a)}\cdot y & :=\int\overline{x}_{a}(\theta,a)y\left(\theta,a\right)dad\theta.
+\end{alignat*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Differentiating the LoM,
+ equation 
+\begin_inset Formula 
+\[
+\overline{\Omega}\left(Z\right)\left\langle a^{\prime},\theta^{\prime}\right\rangle =\int\int\iota\left(\overline{a}(a,\theta,Z)\leq a^{\prime}\right)\iota(\rho_{\theta}\theta+\varepsilon\leq\theta^{\prime})\mu\left(\varepsilon\right)d\varepsilon d\Omega\left\langle a,\theta\right\rangle .
+\]
+
+\end_inset
+
+,
+ in direction 
+\begin_inset Formula $\hat{Z}_{t}$
+\end_inset
+
+ is equivalent to differentiating 
+\begin_inset Formula 
+\[
+\overline{\Omega}(Z^{*}+\alpha\hat{Z}_{t})\langle a^{\prime},\theta^{\prime}\rangle=\int\int\iota\left(\bar{a}(a,\theta,Z^{*}+\alpha\hat{Z}_{t})\leq a^{\prime}\right)\iota\left(\rho_{\theta}\theta+\epsilon\leq\theta^{\prime}\right)\mu(\epsilon)d\epsilon d\left(\Omega^{*}+\alpha\hat{\Omega}_{t}\right)\langle a,\theta\rangle
+\]
+
+\end_inset
+
+with respect to 
+\begin_inset Formula $\alpha.$
+\end_inset
+
+ This yields
+\begin_inset Formula 
+\begin{align*}
+\overline{\Omega}_{Z}\cdot\hat{Z}_{t}\langle a^{\prime},\theta^{\prime}\rangle & =-\iint\delta\left(\overline{a}(a,\theta)-a^{\prime}\right)\iota\left(\rho_{\theta}\theta+\epsilon\leq\theta^{\prime}\right)\mu(\epsilon)d\epsilon\hat{a}_{t}(a,\theta)d\Omega^{*}\langle a,\theta\rangle\\
+ & \quad+\iint\iota\left(\bar{a}(a,\theta)\leq a^{\prime}\right)\iota\left(\rho_{\theta}\theta+\epsilon\leq\theta^{\prime}\right)\mu(\epsilon)d\epsilon d\hat{\Omega}_{t}\langle a,\theta\rangle,
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $\hat{a}_{t}=\mathsf{p}\hat{x}_{t}.$
+\end_inset
+
+ Applying 
+\begin_inset Formula $\frac{d}{d\theta^{'}}$
+\end_inset
+
+ to both sides yields
+\begin_inset Formula 
+\begin{align*}
+\frac{d}{d\theta^{'}}\hat{\Omega}_{t+1}\langle a^{\prime},\theta^{\prime}\rangle & =-\int\overbrace{\delta\left(\overline{a}(a,\theta)-a^{\prime}\right)\mu(\theta^{'}-\rho_{\theta}\theta)}^{\overline{\Lambda}(a^{'},\theta^{'},a,\theta)}\hat{a}_{t}(a,\theta)d\Omega^{*}\langle a,\theta\rangle+\int\iota\left(\bar{a}(a,\theta)\leq a^{\prime}\right)\mu(\theta^{'}-\rho_{\theta}\theta)d\hat{\Omega}_{t}\langle a,\theta\rangle\\
+ & =-\left(\mathcal{M}\cdot\overline{a}_{Z,t}\right)\langle a^{\prime},\theta^{\prime}\rangle+\int\overbrace{\delta\left(\overline{a}(a,\theta)-a^{\prime}\right)\mu(\theta^{'}-\rho_{\theta}\theta)}^{\overline{\Lambda}(a^{'},\theta^{'},a,\theta)}\bar{a}_{a}(a,\theta)\frac{d}{d\theta}\hat{\Omega}_{t}\langle a,\theta\rangle dad\theta\\
+ & =-\left(\mathcal{M}\cdot\hat{a}_{t}\right)\langle a^{\prime},\theta^{\prime}\rangle+\left(\mathcal{L}^{(a)}\cdot\frac{d}{d\theta}\hat{\Omega}_{t}\right)\langle a^{\prime},\theta^{\prime}\rangle
+\end{align*}
+
+\end_inset
+
+Where the second equality is achieved via integration by parts
+\end_layout
+
+\begin_layout Section
+
+\lang english
+Step 4:
+ Putting it all together
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Rolling forward the LoM allows us to prove the following claim
+\end_layout
+
+\begin_layout Claim
+
+\lang english
+\begin_inset CommandInset label
+LatexCommand label
+name "lem: claim roll L trans"
+
+\end_inset
+
+
+\begin_inset Formula $\frac{d}{d\theta}\hat{\Omega}_{t}^{TD}$
+\end_inset
+
+ is given by 
+\begin_inset Formula $\frac{d}{d\theta}\hat{\Omega}_{t}^{TD}=-\sum_{s=0}\mathsf{A}_{t,s}\hat{Y}_{s}^{TD}-\mathsf{A}_{t}^{TD}$
+\end_inset
+
+,
+ where 
+\begin_inset Formula $\mathsf{A}_{t,s}$
+\end_inset
+
+ is as defined 
+\begin_inset Formula $\mathsf{A}_{t,s}$
+\end_inset
+
+ is defined recursively by 
+\begin_inset Formula $\mathsf{A}_{0,s}=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathsf{A}_{t+1,s}=\mathcal{L}^{(a)}\cdot\mathsf{A}_{t,s}-\mathcal{M}\cdot\mathsf{p}\mathsf{x}_{s-t}$
+\end_inset
+
+ and where 
+\begin_inset Formula $\mathsf{A}_{t}^{TD}$
+\end_inset
+
+ satisfies 
+\begin_inset Formula $\mathsf{A}_{t+1}^{TD}=\mathcal{L}^{(a)}\cdot\mathsf{A}_{t}^{TD}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathsf{A}_{0}^{TD}=-\frac{d}{d\theta}\hat{\Omega}_{0}^{TD}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+
+\lang english
+The statement is true for 
+\begin_inset Formula $t=0$
+\end_inset
+
+ as 
+\begin_inset Formula $\mathsf{A}_{0,s}=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathsf{A}_{0}^{TD}=-\frac{d}{d\theta}\hat{\Omega}_{0}^{TD}.$
+\end_inset
+
+ We then proceed by induction 
+\begin_inset Formula 
+\begin{align*}
+\frac{d}{d\theta}\hat{\Omega}_{t+1}^{TD} & =\mathcal{L}^{(a)}\cdot\left(-\sum_{s=0}^{\infty}\mathsf{A}_{t,s}\hat{Y}_{s}^{TD}-\mathsf{A}_{t}^{TD}\right)-\sum_{s=0}^{\infty}\mathcal{M}\cdot\mathsf{p}\mathsf{x}_{s-t}\hat{Y}_{s}^{TD}\\
+ & =-\sum_{s=0}^{\infty}\left(\mathcal{L}^{(a)}\cdot\mathsf{A}_{t,s}+\mathcal{M}\cdot\mathsf{a}_{s-t}\right)\hat{Y}_{s}^{TD}-\mathcal{L}^{(a)}\cdot\mathsf{A}_{t}^{TD}\equiv-\sum_{s=0}^{\infty}\mathsf{A}_{t+1,s}\hat{Y}_{s}^{TD}-\mathsf{A}_{t+1}^{TD},
+\end{align*}
+
+\end_inset
+
+ where we follow the convention 
+\begin_inset Formula $\mathsf{x}_{k}=0$
+\end_inset
+
+ for 
+\begin_inset Formula $k<0.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Finally,
+ 
+\begin_inset Formula 
+\begin{align*}
+\left(\int\overline{x}d\Omega\right)_{Z}\cdot\hat{Z}_{t}^{TD} & =-\int\overline{x}_{a}\frac{d}{d\theta}\hat{\Omega}_{t}^{TD}dad\theta+\sum_{s=0}^{\infty}\int\mathsf{x}_{s}(a,\theta)d\Omega^{*}\hat{Y}_{t+s}^{TD}\\
+ & =\sum_{s}\left(\int\mathsf{x}_{s-t}(a,\theta)d\Omega^{*}+\mathcal{I}^{(a)}\cdot\mathsf{A}_{t,s}\right)\hat{Y}_{s}^{TD}+\mathcal{I}^{(a)}\cdot\mathsf{A}_{t}^{TD}=\sum_{s}\mathsf{J}_{t,s}\hat{Y}_{s}^{TD}+\mathsf{J}_{t}^{TD}.
+\end{align*}
+
+\end_inset
+
+We can write the last term using density
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Formula 
+\[
+\mathcal{I}^{(a)}\cdot\left(\mathcal{L}^{(a)}\right)^{t-1}\cdot\left(-\frac{d}{d\theta}\hat{\Omega}_{0}^{TD}\right)=\mathcal{I}\cdot\Lambda^{t}\hat{\omega}_{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\hat{\omega}(a,\theta)=\frac{d}{da}\int_{-\infty}^{a}\hat{\omega}(a',\theta)da'=\frac{d}{da}\left(\frac{d}{d\theta}\hat{\Omega}(a,\theta)\right)
+\]
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{align*}
+\frac{d}{da}\Lambda(a',\theta',a,\theta) & =\frac{d}{da}\left(\delta(a'-a(a,\theta))\mu(\theta'-\rho_{\theta}\theta)\right)\\
+ & =-\delta'\left(a'-a(a,\theta)\right)\mu(\theta'-\rho_{\theta}\theta)a_{a}(a,\theta)\\
+ & =\frac{d}{da'}\left(\delta\left(a'-a(a,\theta)\right)\mu(\theta'-\rho_{\theta}\theta)a_{a}(a,\theta)\right)\\
+ & =-\frac{d}{da'}\left(\mathcal{L}^{(a)}(a',\theta',a,\theta)\right)
+\end{align*}
+
+\end_inset
+
+So
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\iint\underbrace{\Lambda(a_{1},\theta_{1},a_{0},\theta_{0})}_{u}\underbrace{\hat{\omega}(a_{0},\theta_{0})da_{0}}_{dv}d\theta_{0} & =-\iint\frac{d}{da'}\left(\mathcal{L}^{(a)}(a_{1},\theta_{1},a_{0},\theta_{0})\right)\left(-\frac{d}{d\theta}\hat{\Omega}(a_{0},\theta_{0})\right)da_{0}\theta_{0}\\
+ & =-\frac{d}{da'}\iint\mathcal{L}^{(a)}(a_{1},\theta_{1},a_{0},\theta_{0})\left(-\frac{d}{d\theta}\hat{\Omega}(a_{0},\theta_{0})\right)da_{0}d\theta_{0}
+\end{align*}
+
+\end_inset
+
+So 
+\begin_inset Formula 
+\[
+\Lambda\omega=\left(\frac{d}{da^{\prime}}\mathcal{L}^{(a)}\right)\cdot\left(\frac{d}{d\theta}\hat{\Omega}(a_{0},\theta_{0})\right)
+\]
+
+\end_inset
+
+so
+\begin_inset Formula 
+\begin{align*}
+\mathcal{I}\Lambda y=\int x\Lambda y & =\int x\left(a,\theta\right)\left(\frac{d}{da^{\prime}}\mathcal{L}^{(a)}\right)\cdot\left(\frac{d}{d\theta}\hat{\Omega}(a_{0},\theta_{0})\right)dad\theta\\
+ & =-\int x_{a}\left(\right)\left(\mathcal{L}^{(a)}\right)\cdot\left(\frac{d}{d\theta}\hat{\Omega}(a_{0},\theta_{0})\right)\\
+ & =-\mathcal{I}^{(a)}\left(\mathcal{L}^{(a)}\right)\cdot\left(\frac{d}{d\theta}\hat{\Omega}(a_{0},\theta_{0})\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
